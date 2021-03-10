@@ -1,0 +1,89 @@
+﻿@model FinalProjectasp.ViewModels.EventVm
+
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create category</h4>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label asp-for="EventName">Name</label>
+                        <input asp-for="EventName" class="form-control">
+                        <span asp-validation-for="EventName"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Day">Day</label>
+                        <input asp-for="Day" class="form-control">
+                        <span asp-validation-for="Day"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="StartTime">StartTime</label>
+                        <input asp-for="StartTime" class="form-control">
+                        <span asp-validation-for="StartTime"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Location">Location</label>
+                        <input asp-for="Location" class="form-control">
+                        <span asp-validation-for="Location"></span>
+                    </div>
+
+                    @*<div class="form-group">
+            <label asp-for="Image">Image</label>
+            <input asp-for="Image" class="form-control">
+            <span asp-validation-for="Image"></span>
+        </div>*@
+
+                    <div class="form-group">
+                        <label asp-for="Description">Description</label>
+                        <input asp-for="Description" class="form-control">
+                        <span asp-validation-for="Description"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Photo">Description</label>
+                        <input asp-for="Photo" class="form-control">
+                        <span asp-validation-for="Photo"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="eventCategory">
+                            <option>Select Categories for Event</option>
+                            @foreach (Category c in ViewBag.Categories)
+                            {
+                                <option value="@c.Id">@c.Name</option>
+                            }
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <select name="eventSpeaker">
+                            <option>Select Speaker for Event</option>
+                            @foreach (Speaker s in ViewBag.Speaker)
+                            {
+                                <option value="@s.Id">@s.Name</option>
+                            }
+
+                        </select>
+
+                    </div>
+
+
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
